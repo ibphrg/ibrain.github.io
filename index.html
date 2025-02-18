@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>My Todo List</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/main.js" defer></script>
+  </head>
+  <body class="bg-ltbrown">
+    <div class="container-fluid p-3 text-white text-center headerStyle">
+      <h1>Daily Chores</h1>
+      <p>
+        Add chores as necessary in order they need to be completed and utilize
+        the clear at the bottom when tasks are completed at the end of the day!
+      </p>
+    </div>
+    <div class="tableContainer text-center m-lg-5">
+      <table class="table justify-content-evenly align-middle table-striped">
+        <thead class="table-dark">
+          <tr>
+            <th>Time of Day</th>
+            <th>Chore</th>
+            <th>Image</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+
+      <form class="choreForm">
+        <div class="row">
+          <div class="col">
+            <select class="form-select" id="choreTime">
+              <option>Morning</option>
+              <option>Afternoon</option>
+              <option>Evening</option>
+              <option>Night</option>
+            </select>
+          </div>
+          <div class="col">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Chore To Do"
+              id="choreName"
+            />
+          </div>
+          <div class="col">
+            <select class="form-select" id="choreImg">
+              <option value="img/egg.png">Breakfast</option>
+              <option value="img/dinner.png">Dinner</option>
+              <option value="img/cake.png">Cake</option>
+              <option value="img/car.png">Car</option>
+              <option value="img/cool.png">Hangout</option>
+              <option value="img/dog.png">Dog</option>
+              <option value="img/game.png">Games</option>
+              <option value="img/heart.png">Heart</option>
+              <option value="img/money.png">Money</option>
+              <option value="img/shower.png">Shower</option>
+            </select>
+          </div>
+        </div>
+      </form>
+
+      <div class="buttonBox">
+        <input type="button" onClick="addRow()" value="Add Chore" />
+        <input
+          type="button"
+          data-bs-toggle="modal"
+          data-bs-target="#cancelModal"
+          value="Clear All"
+        />
+      </div>
+    </div>
+
+    <div class="modal" id="cancelModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title">Confirmation</h3>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body">
+            Are you sure you want to clear the table?
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-danger"
+              onClick="clearAll()"
+              data-bs-dismiss="modal"
+            >
+              Yes, I'm sure
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Form help from https://stackoverflow.com/questions/41935156/how-to-add-data-to-a-table-in-html-->
+    <!-- Insert help from https://code-boxx.com/add-table-rows-cells-javascript/ -->
+    <!-- Delete help from https://stackoverflow.com/questions/7271490/delete-all-rows-in-an-html-table -->
+  </body>
+</html>
